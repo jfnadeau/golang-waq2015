@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Google Go (golang) : Le langage de programmation en émergence pour l’ère du cloud computing</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.css">
+		<link rel="stylesheet" href="solarized_dark.css">
+		<link rel="stylesheet" href="night.css" id="theme">
+
+		<!-- <link rel="stylesheet" href="../../css/theme/night.css" id="theme"> -->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h2>Google Go ou golang</h2>
+					<p>Pourquoi et comment?</p>
+					<br>
+					<h5>Jean-François Nadeau, 20 mars WAQ 2015</h5>
+				</section>
+
+				<section>
+					<h2>Qui suis-je?</h2>
+					<ul>
+						<li>Co-fondateur de MailSquad</li>
+						<li>A fait d'un peu de tout:
+							<table>
+								<tr>
+									<td>Ruby</td>
+									<td>2003 - Lektora</td>
+								<tr>
+								<tr>
+									<td>C++</td>
+									<td>2005 - Microsoft / IE7</td>
+								<tr>
+								<tr>
+									<td>Java</td>
+									<td>2007 - SSQ</td>
+								<tr>
+								<tr>
+									<td>C#</td>
+									<td>2009 - SQI</td>
+								<tr>
+								<tr>
+									<td>Golang / Typescript</td>
+									<td>2014</td>
+								<tr>
+							
+							</table>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					
+					<h2>Historique de Golang</h2>
+					<ul>
+						<li>Déjà plus de 5 ans (2009)</li>
+						<li><ul>
+							<li>Kenneth Thompson (Unix)</li>
+							<li>Rob Pike (Plan 9)</li>
+							<li>Robert Griesemer</li>
+						</ul></li>
+						<li>Problème: quantité de code C++ chez Google</li>
+						<li>Solution: inventer un langage à la "Google scale"</li>
+					</ul>
+
+				</section>
+
+				<section>
+						
+					<h2>Quelques avantages</h2>
+					<ul>
+						<li>"Tooling" : compilation, formattage, tdd, analyse statique, etc.</li>
+						<li>Librairie standard: très robuste et complète</li>
+						<li>Compilation native avec garbage collector</li>
+						<li>Concurrence / parralélisme</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Quelques désavantages</h2>
+					<ul>
+						<li>Langage parfois trop simple (ex: générique)</li>
+						<li>Support débuggueur brisé (GDB)</li>
+						<li>Aucun IDE tel qu'en Java / C#</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Cas d'utilisations typiques</h2>
+					<ul>
+						<li>"Deamon" réseau (ex: API REST HTTP)</li>
+						<li>Langage système (ex: <a href="https://github.com/docker/docker">docker</a>)</li>
+						<li>Outil ligne de commande (ex: <a href="https://github.com/mongodb/mongo-tools">mongodb-tools</a>)</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Qui utilise?</h2>
+					<ul>
+						<li>Docker</li>
+						<li>CoreOS (etcd)</li>
+						<li>Ubuntu (juju)</li>
+						<li>Shopify, SoundCloud, CloudFlare, bitly, etc...</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Hello world!</h2>
+					<pre><code data-trim class="go">
+package main
+
+import "fmt"
+
+func main() {
+  msg := "Allo monde!"
+  fmt.Println(msg)
+}
+					</code></pre>
+
+					<ul>
+						<li>package - similaire Java / namespace C++ / C#</li>
+						<li>import - déclaration d'utilisation d'un package externe</li>
+						<li>func - déclaration d'une fonction</li>
+						<li>opérateur := - déclaration et assignement</li>
+						<li>fmt.Println - utilisation librarie standard</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Les particularités</h2>
+
+				</section>
+				
+				<section>
+					<h2>Des pointeurs comme en C</h2>
+					<pre><code data-trim class="go">
+type Structure struct {
+  nombre int
+}
+
+func utilisation(s *Structure) { 
+  copie := *s
+}
+					</code></pre>
+					<ul>
+						<li>Exactement pareil que en C</li>
+						<li>Assignement: copie par valeur</li>
+						<li>Sécuritaire (protection nil)</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2>Interface et "duck typing"</h2>
+					<pre><code data-trim class="go">
+type Parleur interface {
+  Parle() string
+}
+
+type Implementation struct {
+  msg string
+}
+
+func (i *Implementation) Parle() string { 
+  return i.msg
+}
+
+func FaitParler(p Parleur) {
+  fmt.Println(p.Parle())
+}
+					</code></pre>
+					<ul>
+						<li>Déclaration et implémentation dissociée</li>
+						<li>Seule façon de faire du polymorphisme</li>
+						<li>Utile: plusieurs petites interfaces</li>
+					</ul>
+
+				</section>
+
+				<section>
+						<h2>OO et composition</h2>
+						<pre><code data-trim class="go">
+type Auto struct {
+  nbRoues int
+}
+
+type Ferrari struct {
+  Auto
+  moteur *Moteur
+}
+
+func (i *Auto) NbRoues() int { 
+  return i.nbRoues
+}
+
+func (i *Ferrari) Demarrer() { ...}
+
+func exemple(f *Ferrari) {
+  fmt.Println(f.NbRoues())
+  f.Demarrer()
+}
+					</code></pre>
+					<ul>
+						<li>Une seule composition</li>
+						<li>Pas de surchage de méthodes / fonctions</li>
+					</ul>
+
+				</section>
+
+
+				<section>
+						<h2>Gestion des erreurs</h2>
+						<pre><code data-trim class="go">
+func ManipulerFichier(nom string) (f *File, err error) {
+	
+ f, err = os.Open(nom)
+ if err != nil {
+     return
+ }
+
+ // Faire quelque chose avec f
+}
+						</code></pre>
+						<ul>
+							<li>Pas d'exception sauf fatale (panic sur pointeur nil)</li>
+							<li>On aime ou pas!</li>
+							<li>Le bon coté: forcer à considérer toutes les erreurs</li>
+							<li>Retour valeurs multiples est très utile</li>
+						</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Cas pratiques</h2>
+
+				</section>
+
+				<section>
+					
+					<h2>Outils de développement</h2>
+					<ul>
+						<li>Meilleur combo: éditeur de texte avec plugin</li>
+						<li>Moi: Sublime + <a href="https://github.com/DisposaBoy/GoSublime">GoSublime</a></li>
+						<li>Débuggage: retour du bon vieux printf</li>
+						<li>Autres: Atom, GoClipse, liteide, Intellij</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>API REST</h2>
+					<ul>
+						<li>Package standard: <a href="http://golang.org/pkg/net/http/">net/http</a>, <a href="http://golang.org/pkg/encoding/json/">encoding/json</a></li>
+						<li>Routing: <a href="http://www.gorillatoolkit.org/pkg/mux">mux</a></li>
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>HTML</h2>
+					<ul>
+						<li>Package standard: <a href="http://golang.org/pkg/html/template/">html/template</a></li>
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>Persistance / DB</h2>
+					<ul>
+						<li>built-in pg?<li>
+						<li>Mongo : mgo</li>
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>Vendoring</h2>
+					<ul>
+						<li>godep<li>
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>Deploiement</h2>
+					<ul>
+						<li>go build<li>
+						<li>scp<li>
+					</ul>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="head.min.js"></script>
+		<script src="reveal.js"></script>
+		<script src="highlight.pack.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				dependencies: [
+					{ src: 'classList.js' },
+					{ src: 'highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
