@@ -37,23 +37,23 @@
 								<tr>
 									<td>Ruby</td>
 									<td>2003 - Lektora</td>
-								<tr>
+								</tr>
 								<tr>
 									<td>C++</td>
 									<td>2005 - Microsoft / IE7</td>
-								<tr>
+								</tr>
 								<tr>
 									<td>Java</td>
 									<td>2007 - SSQ</td>
-								<tr>
+								</tr>
 								<tr>
 									<td>C#</td>
 									<td>2009 - SQI</td>
-								<tr>
+								</tr>
 								<tr>
 									<td>Golang / Typescript</td>
 									<td>2014</td>
-								<tr>
+								</tr>
 							
 							</table>
 						</li>
@@ -314,6 +314,174 @@ func ManipulerFichier(nom string) (f *File, err error) {
 						<li>go build<li>
 						<li>scp<li>
 					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>Go versus X,Y,Z?</h2>
+
+				</section>
+
+				<section>
+
+					<h2>Go vs Ruby/Python/Node.js</h2>
+					<h5>Plus</h5>
+					<ul>
+						<li>Typage statique</li>
+						<li>Performance et consommation de mémoire</li>
+						<li>Déploiement au plus simple</li>
+						<li>Vs Node.js: aync io sans callback hells</li>
+					</ul>
+
+
+				</section>
+
+				<section>
+
+					<h2>Go vs Ruby/Python/Node.js</h2>
+					<h5>Moins</h5>
+					<ul>
+						<li>Rien d'équivalent à RubyOnRails</li>
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>Go vs .NET/Java</h2>
+					<h5>Plus</h5>
+					<ul>
+						<li>Aucune VM à gérer</li>
+						<li>Consommation mémoire: très efficace</li>
+						<li>Vs .NET: Linux, mais quoi réserve .NET Core?</li>
+					</ul>
+					
+				</section>
+
+				<section>
+
+					<h2>Go vs .NET/Java</h2>
+					<h5>Moins</h5>
+					<ul>
+						<li>Vs C#: pas la même optique du tout (LINQ, génériques, etc.)</li>
+						<li>Vs JVM: vaste choix de langages pour une même VM</li>
+					</ul>
+					
+				</section>
+
+				<section>
+
+					<h2>Go vs C/C++</h2>
+					<h5>Plus</h5>
+					<ul>
+						<li>Enfin une alternative viable</li>
+						<li>Support Android natif s'en vient</li>
+						<li>Chez Google: dl.google.com, C++ à Go</li>
+					</ul>
+					
+				</section>
+
+				<section>
+
+					<h2>Go vs C/C++</h2>
+					<h5>Moins</h5>
+					<ul>
+						<li>GC obligatoire, mais 1.5, real time GC</li>
+						<li>Sera jamais aussi complet que C++</li>
+						<li>Mozilla Rust vs Golang: à voir</li>
+					</ul>
+					
+				</section>
+
+				<section>
+
+					<h2>Retour d'expérience chez  <a href="http://mailsquad.com">MailSquad</a></h2>
+					
+				</section>
+
+				<section>
+
+					<h2>Critères de sélection</h2>
+					<ul>
+						<li>Backend: API REST seulement (frontend: AngularJS)</li>
+						<li>Rapport productivité/performance: $$$ infrastructure</li>
+						<li>Support Linux et MacOS X</li>
+						<li>Esprit TDD et outils environnant</li>
+					</ul>
+					
+				</section>
+
+				<section>
+
+					<h2>Les choix</h2>
+					<table>
+						<tr>
+							<td>C#/.NET</td>
+							<td>excellent langage, mais manque de confiance par rapport à Linux</td>
+						</tr>
+						<tr>
+							<td>Java/JVM</td>
+							<td>très robuste mais JVM beaucoup trop gourmante en mémoire</td>
+						</tr>
+						<tr>
+							<td>Ruby/Python</td>
+							<td>language agréable mais VM défficiente</td>
+						</tr>
+						<tr>
+							<td>Node.js</td>
+							<td>désolé, callbacks et promises n'est pas un cadeau</td>
+						</tr>
+						<tr>
+							<td>C/C++</td>
+							<td>gestion de mémoire et sécurité des pointeurs, jamais!</td>
+						</tr>
+						<tr>
+							<td>Rust</td>
+							<td>&lt; 1.0</td>
+						</tr>
+					
+					</table>
+					
+				</section>
+
+				<section>
+
+					<h2>Résultats</h2>
+					<ul>
+						<li>Encore très satisfait après 1 an, même devenu évangéliste!</li>
+						<li><strong>Ce que j'aime:</strong>
+							<ul>
+								<li>Compilation instantanée pour 28k lignes de code</li>
+								<li>Coût d'exploitation ridicule</li>
+								<li>Librarie standard surprenamment complète</li>
+								<li>go fmt: génial!</li>
+								<li>Jamais de surprise</li>
+							</ul>
+						</li>
+						<li><strong>Ce que j'aime moins:</strong>
+							<ul>
+								<li>Les génériques seraient utiles, mais on s'y fait</li>
+								<li>Gestion des erreurs: neutre</li>
+								<li>Défis de recrutement: à voir?</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Osez Golang!</h2>
+					<ul>
+						<li>Livre: <a href="http://www.amazon.com/Programming-Go-Creating-Applications-Developers/dp/0321774639/">Programming in Go</a></li>
+						<li>Documentation: Sur le <a href="https://golang.org/pkg/">site de Go</a></li>
+						<li>Discussions: Groupe Google <a href="https://groups.google.com/forum/#!forum/golang-nuts">golang-nuts</a></li>
+						<li>Moi: <a href="mailto:jfnadeau@mailsquad.com">jfnadeau@mailsquad.com</a></li>
+					</ul>
+					<p><br></p>
+					<h5>Shameless plug!</h5>
+					<p>Vous utilisez MailChimp ou CampaignMonitor?<br>Parlez moi de <a href="https://mailsquad.com">MailSquad!</a></p>
 
 				</section>
 
