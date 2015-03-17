@@ -35,7 +35,7 @@
 					<img src="gopher.svg" width="200">
 					<br>
 					<br>
-					<h5>Jean-François Nadeau, 20 mars WAQ 2015</h5>
+					<h5>Jean-François Nadeau<br>20 mars, WAQ 2015</h5>
 				</section>
 
 				<section>
@@ -61,7 +61,7 @@
 									<td>2009 - SQI</td>
 								</tr>
 								<tr>
-									<td>Golang / Typescript</td>
+									<td>Golang / TypeScript</td>
 									<td>2014</td>
 								</tr>
 							
@@ -87,33 +87,10 @@
 				</section>
 
 				<section>
-						
-					<h2>Quelques avantages</h2>
-					<ul>
-						<li>"Tooling" : compilation, formattage, tdd, analyse statique, etc.</li>
-						<li>Librairie standard: très robuste et complète</li>
-						<li>Compilation native avec garbage collector</li>
-						<li>Concurrence / parralélisme</li>
-					</ul>
-
-				</section>
-
-				<section>
-					
-					<h2>Quelques désavantages</h2>
-					<ul>
-						<li>Langage parfois trop simple (ex: générique)</li>
-						<li>Support débuggueur brisé (GDB)</li>
-						<li>Aucun IDE tel qu'en Java / C#</li>
-					</ul>
-
-				</section>
-
-				<section>
 					
 					<h2>Cas d'utilisations typiques</h2>
 					<ul>
-						<li>"Deamon" réseau (ex: API REST HTTP)</li>
+						<li>"Daemon" réseau (ex: API REST HTTP)</li>
 						<li>Langage système (ex: <a href="https://github.com/docker/docker">docker</a>)</li>
 						<li>Outil ligne de commande (ex: <a href="https://github.com/mongodb/mongo-tools">mongodb-tools</a>)</li>
 					</ul>
@@ -151,7 +128,7 @@ func main() {
 						<li>import - déclaration d'utilisation d'un package externe</li>
 						<li>func - déclaration d'une fonction</li>
 						<li>opérateur := - déclaration et assignement</li>
-						<li>fmt.Println - utilisation librarie standard</li>
+						<li>fmt.Println - utilisation librairie standard</li>
 					</ul>
 
 				</section>
@@ -233,8 +210,8 @@ func exemple(f *Ferrari) {
 					</code></pre>
 					<ul>
 						<li>Pas d'héritage, composition seulement</li>
-						<li>Public / Privée: Lettre masjuscule est exportée seulement</li>
-						<li>Pas de surchage de méthodes / fonctions</li>
+						<li>Public / Privée: Lettre majuscule est exportée seulement</li>
+						<li>Pas de surcharge de méthodes / fonctions</li>
 					</ul>
 
 				</section>
@@ -292,13 +269,36 @@ func main() {
 				</section>
 
 				<section>
+						
+					<h2>Quelques avantages</h2>
+					<ul>
+						<li>"Tooling" : compilation, formatage, TDD, analyse statique, etc.</li>
+						<li>Librairie standard: très robuste et complète</li>
+						<li>Compilation native avec garbage collector</li>
+						<li>Concurrence / parralélisme</li>
+					</ul>
+
+				</section>
+
+				<section>
+					
+					<h2>Quelques désavantages</h2>
+					<ul>
+						<li>Langage parfois trop simple (ex: générique)</li>
+						<li>Support débuggeur brisé (GDB)</li>
+						<li>Aucun IDE tel qu'en Java / C#</li>
+					</ul>
+
+				</section>
+
+				<section>
 					
 					<h2>Outils de développement</h2>
 					<ul>
 						<li>Meilleur combo: éditeur de texte avec plugin</li>
-						<li>Moi: Sublime + <a href="https://github.com/DisposaBoy/GoSublime">GoSublime</a></li>
-						<li>Débuggage: retour du bon vieux printf</li>
-						<li>Autres: Atom, GoClipse, liteide, Intellij</li>
+						<li>Moi: <a href="http://www.sublimetext.com/">Sublime</a> + <a href="https://github.com/DisposaBoy/GoSublime">GoSublime</a></li>
+						<li>Débogage: retour du bon vieux printf</li>
+						<li>Autres: Atom, GoClipse, liteide, IntelliJ</li>
 					</ul>
 
 				</section>
@@ -333,7 +333,7 @@ func main() {
 								<td><a href="http://www.gorillatoolkit.org/pkg/mux">mux</a></td>
 							</tr>
 							<tr>
-								<td>persistence / bd</td>
+								<td>persistance / bd</td>
 								<td><a href="http://golang.org/pkg/database/sql/">database/sql</a>, <a href="https://labix.org/mgo">mgo</a></td>
 							</tr>
 							<tr>
@@ -359,7 +359,7 @@ func main() {
 						<li>Typage statique</li>
 						<li>Performance et consommation de mémoire</li>
 						<li>Déploiement au plus simple</li>
-						<li>Vs Node.js: aync io sans callback hells</li>
+						<li>Vs Node.js: aync io sans callback hell</li>
 					</ul>
 
 
@@ -454,7 +454,7 @@ func main() {
 						</tr>
 						<tr>
 							<td>Ruby/Python</td>
-							<td>language agréable mais VM défficiente</td>
+							<td>langage agréable mais VM déficiente</td>
 						</tr>
 						<tr>
 							<td>Node.js</td>
@@ -482,7 +482,7 @@ func main() {
 							<ul>
 								<li>Compilation instantanée pour 28k lignes de code</li>
 								<li>Coût d'exploitation ridicule</li>
-								<li>Librarie standard surprenamment complète</li>
+								<li>Librairie standard surprenamment complète</li>
 								<li>go fmt: génial!</li>
 								<li>Jamais de surprise</li>
 							</ul>
@@ -509,7 +509,7 @@ func main() {
 					</ul>
 					<p><br></p>
 					<h5>Shameless plug!</h5>
-					<p>Vous utilisez MailChimp ou CampaignMonitor?<br>Parlez moi de <a href="https://mailsquad.com">MailSquad!</a></p>
+					<p>Vous utilisez MailChimp ou CampaignMonitor?<br>Allez voir <a href="https://mailsquad.com">MailSquad!</a></p>
 
 				</section>
 
